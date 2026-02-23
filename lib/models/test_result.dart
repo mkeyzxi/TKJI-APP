@@ -29,6 +29,8 @@ class TestResult {
   String kategori;
 
   DateTime tanggalTes;
+  DateTime? createdAt;
+  DateTime? updatedAt;
 
   TestResult({
     required this.id,
@@ -53,6 +55,8 @@ class TestResult {
     required this.totalSkor,
     required this.kategori,
     required this.tanggalTes,
+    this.createdAt,
+    this.updatedAt,
   });
 
   // Convert to Map for storage
@@ -80,6 +84,12 @@ class TestResult {
       'totalSkor': totalSkor,
       'kategori': kategori,
       'tanggalTes': DateFormat('yyyy-MM-dd HH:mm:ss').format(tanggalTes),
+      'createdAt': createdAt != null
+          ? DateFormat('yyyy-MM-dd HH:mm:ss').format(createdAt!)
+          : DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
+      'updatedAt': updatedAt != null
+          ? DateFormat('yyyy-MM-dd HH:mm:ss').format(updatedAt!)
+          : DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
     };
   }
 
@@ -110,6 +120,12 @@ class TestResult {
       tanggalTes: DateTime.parse(
         map['tanggalTes'] ?? DateTime.now().toIso8601String(),
       ),
+      createdAt: map['createdAt'] != null
+          ? DateTime.parse(map['createdAt'])
+          : null,
+      updatedAt: map['updatedAt'] != null
+          ? DateTime.parse(map['updatedAt'])
+          : null,
     );
   }
 }
