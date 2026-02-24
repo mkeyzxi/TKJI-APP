@@ -52,13 +52,13 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
-    fontFamily: 'Inter',
+    fontFamily: 'Poppins',
   );
 
   static const TextStyle caption = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
-    fontFamily: 'Inter',
+    fontFamily: 'Poppins',
   );
 }

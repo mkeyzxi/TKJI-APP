@@ -27,7 +27,7 @@ class TKJIApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Kebugaran Jasmani - TKJI',
+      title: 'MAPP-FIT',
       theme: ThemeData(fontFamily: 'Poppins', useMaterial3: true),
       locale: Locale('id', 'ID'),
       supportedLocales: [Locale('id', 'ID'), Locale('en', 'US')],

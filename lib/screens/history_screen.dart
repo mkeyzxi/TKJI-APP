@@ -128,7 +128,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           // Sort Options
           Row(
             children: [
-              Text('Urutkan:', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('Urutkan:', style: AppTextStyles.bodyText),
               SizedBox(width: 12),
               Expanded(
                 child: SegmentedButton<String>(
@@ -236,16 +236,16 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   children: [
                     Text(
                       '${result.totalSkor}',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                      style: AppTextStyles.heading1.copyWith(
                         color: Colors.white,
-                        fontFamily: 'Poppins',
+                        fontSize: 18,
                       ),
                     ),
                     Text(
                       '/25',
-                      style: TextStyle(fontSize: 10, color: Colors.white),
+                      style: AppTextStyles.caption.copyWith(
+                        color: Colors.white,
+                      ),
                     ),
                   ],
                 ),
