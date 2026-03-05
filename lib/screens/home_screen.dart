@@ -37,133 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// class _HomeContent extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(
-//           'MAPP-FIT',
-//           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-//         ),
-//         backgroundColor: AppColors.primary,
-//         elevation: 0,
-//         centerTitle: false,
-//       ),
-//       body: SingleChildScrollView(
-//         padding: const EdgeInsets.all(16),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             // 1. Welcome Card (Integrasi Definisi MAPP-FIT)
-//             _buildWelcomeCard(),
-
-//             const SizedBox(height: 32),
-
-//             // 2. Quick Actions Section
-//             Text('Mulai Tes', style: AppTextStyles.heading2),
-//             const SizedBox(height: 16),
-//             _buildActionCard(
-//               context,
-//               icon: Icons.fitness_center,
-//               title: 'Tes TKJI Baru',
-//               subtitle: 'Lakukan tes kesegaran jasmani',
-//               color: AppColors.primary,
-//               onTap: () {
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(builder: (context) => BiodataScreen()),
-//                 );
-//               },
-//             ),
-//             const SizedBox(height: 16),
-//             _buildActionCard(
-//               context,
-//               icon: Icons.calculate,
-//               title: 'Hitung Skor Langsung',
-//               subtitle: 'Kalkulasi skor tanpa biodata',
-//               color: Colors.indigo,
-//               onTap: () {
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder: (context) => QuickCalculateScreen(),
-//                   ),
-//                 );
-//               },
-//             ),
-
-//             const SizedBox(height: 32),
-
-//             // 3. Info Section
-//             Text('Tentang TKJI', style: AppTextStyles.heading2),
-//             const SizedBox(height: 16),
-//             _buildInfoCard(
-//               title: 'Tes Kesegaran Jasmani Indonesia',
-//               description:
-//                   'TKJI adalah tes standar untuk mengukur tingkat kesegaran jasmani seseorang melalui 5 komponen uji fisik.',
-//               icon: Icons.info_outline,
-//             ),
-//             const SizedBox(height: 16),
-
-//             _buildInfoCard(
-//               title: '5 Komponen Tes TKJI',
-//               description:
-//                   '• Lari 60 Meter (Sprint)\n'
-//                   '• Gantung Angkat Tubuh (Putra: Angkat Tubuh / Putri: Menahan Tubuh)\n'
-//                   '• Baring Duduk (Sit-up 60 Detik)\n'
-//                   '• Loncat Tegak (Vertical Jump)\n'
-//                   '• Lari Jarak Jauh (Putra: 1200m / Putri: 1000m)',
-//               icon: Icons.list_alt_rounded,
-//             ),
-//             const SizedBox(height: 24),
-
-//             // 4. Tabel Standar Penilaian (Permintaan Khusus)
-//             Text('Standar Penilaian TKJI', style: AppTextStyles.heading2),
-//             const SizedBox(height: 16),
-
-//             // Tabel Putra
-//             _buildTKJITable(
-//               title: "Norma Penilaian TKJI Putra",
-//               data: [
-//                 ['5', '< 7,2', '> 19', '> 41', '> 73', '< 3’14”'],
-//                 ['4', '7,3–8,3', '14–18', '30–40', '60–72', '3’15”–4’25”'],
-//                 ['3', '8,4–9,6', '9–13', '21–29', '50–59', '4’26”–5’12”'],
-//                 ['2', '9,7–11,0', '5–8', '10–20', '39–49', '5’13”–6’33”'],
-//                 ['1', '> 11,1', '0–4', '0–9', '< 38', '> 6’34”'],
-//               ],
-//             ),
-
-//             const SizedBox(height: 20),
-
-//             // Tabel Putri
-//             _buildTKJITable(
-//               title: "Norma Penilaian TKJI Putri",
-//               data: [
-//                 ['5', '< 8,4', '> 40', '> 29', '> 50', '< 3’52”'],
-//                 ['4', '8,5–9,8', '20–39', '20–28', '39–49', '3’53”–4’56”'],
-//                 ['3', '9,9–11,4', '8–19', '10–19', '31–38', '4’57”–5’58”'],
-//                 ['2', '11,5–13,4', '2–7', '3–9', '23–30', '5’59”–7’23”'],
-//                 ['1', '> 13,5', '0–2', '0–2', '< 23', '> 7’23”'],
-//               ],
-//             ),
-
-//             const SizedBox(height: 24),
-
-//             // 5. Kategori Hasil
-//             _buildInfoCard(
-//               title: 'Kategori Hasil Akhir (Skor)',
-//               description:
-//                   '• 22-25: Baik Sekali\n• 18-21: Baik\n• 14-17: Sedang\n• 10-13: Kurang\n• 5-9: Kurang Sekali',
-//               icon: Icons.assessment,
-//             ),
-
-//             const SizedBox(height: 32),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
 class _HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -237,7 +110,7 @@ class _HomeContent extends StatelessWidget {
             Text('Standar Penilaian TKJI', style: AppTextStyles.heading2),
             const SizedBox(height: 16),
             _buildTKJITable(
-              title: "Norma Penilaian TKJI Putra (16–58 Thn)",
+              title: "Norma Penilaian TKJI Putra",
               data: [
                 ['5', '< 7,2', '> 19', '> 41', '> 73', '< 3’14”'],
                 ['4', '7,3–8,3', '14–18', '30–40', '60–72', '3’15”–4’25”'],
@@ -248,7 +121,7 @@ class _HomeContent extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             _buildTKJITable(
-              title: "Norma Penilaian TKJI Putri (16–58 Thn)",
+              title: "Norma Penilaian TKJI Putri",
               data: [
                 ['5', '< 8,4', '> 40', '> 29', '> 50', '< 3’52”'],
                 ['4', '8,5–9,8', '20–39', '20–28', '39–49', '3’53”–4’56”'],
@@ -656,11 +529,14 @@ Widget _buildTKJITable({
           child: DataTable(
             columns: [
               DataColumn(label: Text('Skor')),
-              DataColumn(label: Text('60m')),
+              DataColumn(label: Text('Lari 60m')),
               DataColumn(label: Text('Gantung')),
               DataColumn(label: Text('Sit-up')),
               DataColumn(label: Text('Loncat')),
-              DataColumn(label: Text('Lari')),
+              if (title.contains('Putra'))
+                DataColumn(label: Text('Lari 1200m'))
+              else
+                DataColumn(label: Text('Lari 1000m')),
             ],
             rows: data
                 .map(

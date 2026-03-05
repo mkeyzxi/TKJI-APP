@@ -103,4 +103,10 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/icon-tkji.png"
+  image_path: assets/icon/icon-tkji.png
+
+flutter_native_splash:
+  android: true
+  ios: false
+  color: "#0D47A1"
+  image: assets/icon/icon-tkji.png
