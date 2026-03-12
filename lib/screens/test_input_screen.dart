@@ -95,7 +95,9 @@ class _TestInputScreenState extends State<TestInputScreen> {
                   SizedBox(height: 8),
                   Text(
                     _getStepLabel(index),
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+                    style: AppTextStyles.caption.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -166,6 +168,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         SizedBox(height: 20),
         CustomInput(
           label: 'Waktu Lari 60m (detik)',
+          key: ValueKey('lari60'),
           type: TextInputType.numberWithOptions(decimal: true),
           onChanged: (value) => lari60 = double.tryParse(value) ?? 0,
           validator: (value) {
@@ -180,24 +183,34 @@ class _TestInputScreenState extends State<TestInputScreen> {
   }
 
   Widget _buildGantungStep() {
+    bool isPutra = widget.participant.jenisKelamin == 'Putra';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildStepHeader(
           'Gantung Angkat Tubuh',
-          'Catatan: Masukkan jumlah repetisi',
+          // 2. Sesuaikan catatan header
+          isPutra
+              ? 'Catatan: Masukkan jumlah repetisi'
+              : 'Catatan: Masukkan durasi dalam detik',
         ),
         SizedBox(height: 24),
+        // 3. Sesuaikan isi InfoBox sesuai permintaan Anda
         _buildInfoBox(
-          'Peserta menggantung dan mengangkat tubuh sebanyak mungkin.',
+          isPutra
+              ? 'Peserta mengangkat tubuh sebanyak mungkin selama satu menit.'
+              : 'Peserta menahan tubuh selama mungkin (hitungan detik).',
         ),
         SizedBox(height: 20),
         CustomInput(
-          label: 'Jumlah Gantung (kali)',
+          key: ValueKey(
+            'gantung',
+          ), // 4. Sesuaikan label input agar user tidak bingung (Kali vs Detik)
+          label: isPutra ? 'Jumlah Gantung (kali)' : 'Durasi Menahan (detik)',
           type: TextInputType.number,
           onChanged: (value) => gantung = int.tryParse(value) ?? 0,
           validator: (value) {
-            if (value?.isEmpty ?? true) return 'Jumlah tidak boleh kosong';
+            if (value?.isEmpty ?? true) return 'Input tidak boleh kosong';
             int? val = int.tryParse(value!);
             if (val == null || val < 0) return 'Masukkan angka valid';
             return null;
@@ -221,6 +234,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         ),
         SizedBox(height: 20),
         CustomInput(
+          key: ValueKey('situp'),
           label: 'Jumlah Sit-up (kali)',
           type: TextInputType.number,
           onChanged: (value) => situp = int.tryParse(value) ?? 0,
@@ -246,6 +260,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         ),
         SizedBox(height: 20),
         CustomInput(
+          key: ValueKey('loncat'),
           label: 'Hasil Loncat Tegak (cm)',
           type: TextInputType.number,
           onChanged: (value) => loncat = int.tryParse(value) ?? 0,
@@ -271,16 +286,19 @@ class _TestInputScreenState extends State<TestInputScreen> {
         ),
         SizedBox(height: 24),
         _buildInfoBox(
-          'Peserta berlari ${jarak} meter secepatnya.\nMasukkan waktu dalam menit dan detik.',
+          'Peserta berlari ${jarak} meter secepatnya. Masukkan waktu dalam menit dan detik.',
         ),
         SizedBox(height: 20),
         Row(
           children: [
             Expanded(
               child: CustomInput(
+                key: ValueKey('lariJauhMenit'),
                 label: 'Menit',
                 type: TextInputType.number,
-                onChanged: (value) => lariJauhMenit = int.tryParse(value) ?? 0,
+                onChanged: (value) => setState(
+                  () => lariJauhMenit = int.tryParse(value) ?? 0,
+                ), // Tambahkan setState agar teks total update otomatis
                 validator: (value) {
                   if (value?.isEmpty ?? true) return 'Tidak boleh kosong';
                   return null;
@@ -290,9 +308,12 @@ class _TestInputScreenState extends State<TestInputScreen> {
             SizedBox(width: 12),
             Expanded(
               child: CustomInput(
+                key: ValueKey('lariJauhDetik'),
                 label: 'Detik',
                 type: TextInputType.number,
-                onChanged: (value) => lariJauhDetik = int.tryParse(value) ?? 0,
+                onChanged: (value) => setState(
+                  () => lariJauhDetik = int.tryParse(value) ?? 0,
+                ), // Tambahkan setState agar teks total update otomatis
                 validator: (value) {
                   if (value?.isEmpty ?? true) return 'Tidak boleh kosong';
                   return null;
@@ -302,15 +323,26 @@ class _TestInputScreenState extends State<TestInputScreen> {
           ],
         ),
         SizedBox(height: 12),
+        // --- PERBAIKAN DI SINI ---
         Container(
+          width: double
+              .infinity, // Paksa lebar penuh agar sama dengan input di atas
           padding: EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Colors.grey[300]!,
+            ), // Opsional: tambah border agar lebih tegas
           ),
           child: Text(
             'Total: $lariJauhMenit m $lariJauhDetik s (${lariJauhMenit * 60 + lariJauhDetik} detik)',
-            style: TextStyle(fontWeight: FontWeight.w500),
+            textAlign:
+                TextAlign.center, // Buat teks di tengah agar lebih profesional
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: AppColors.primary,
+            ),
           ),
         ),
       ],

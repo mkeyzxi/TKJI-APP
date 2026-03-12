@@ -217,15 +217,14 @@ class ResultScreen extends StatelessWidget {
         children: [
           Text(
             "Total Skor TKJI",
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+            style: AppTextStyles.bodyText.copyWith(color: Colors.white70),
           ),
           SizedBox(height: 12),
           Text(
             "$totalScore",
-            style: TextStyle(
+            style: AppTextStyles.heading1.copyWith(
               color: Colors.white,
               fontSize: 48,
-              fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(height: 12),
@@ -238,11 +237,7 @@ class ResultScreen extends StatelessWidget {
             ),
             child: Text(
               kategori,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+              style: AppTextStyles.subheading.copyWith(color: Colors.white),
             ),
           ),
         ],
@@ -265,12 +260,14 @@ class ResultScreen extends StatelessWidget {
                 children: [
                   Text(
                     test,
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                    style: AppTextStyles.subheading.copyWith(fontSize: 14),
                   ),
                   SizedBox(height: 4),
                   Text(
                     result,
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    style: AppTextStyles.caption.copyWith(
+                      color: Colors.grey[600],
+                    ),
                   ),
                 ],
               ),

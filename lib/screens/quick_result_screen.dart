@@ -99,10 +99,7 @@ class QuickResultScreen extends StatelessWidget {
                 },
                 child: Text(
                   "Kembali ke Beranda",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyles.subheading.copyWith(color: Colors.white),
                 ),
               ),
             ),
@@ -130,15 +127,14 @@ class QuickResultScreen extends StatelessWidget {
         children: [
           Text(
             "Total Skor TKJI",
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+            style: AppTextStyles.bodyText.copyWith(color: Colors.white70),
           ),
           SizedBox(height: 12),
           Text(
             "$totalScore",
-            style: TextStyle(
+            style: AppTextStyles.heading1.copyWith(
               color: Colors.white,
               fontSize: 48,
-              fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(height: 12),
@@ -151,11 +147,7 @@ class QuickResultScreen extends StatelessWidget {
             ),
             child: Text(
               kategori,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+              style: AppTextStyles.subheading.copyWith(color: Colors.white),
             ),
           ),
         ],

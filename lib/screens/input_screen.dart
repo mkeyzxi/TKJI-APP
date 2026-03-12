@@ -15,7 +15,10 @@ class _InputScreenState extends State<InputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Input Nilai TKJI", style: TextStyle(color: Colors.white)),
+        title: Text(
+          "Input Nilai TKJI",
+          style: AppTextStyles.heading2.copyWith(color: Colors.white),
+        ),
         backgroundColor: AppColors.primary,
       ),
       body: SingleChildScrollView(
@@ -52,7 +55,9 @@ class _InputScreenState extends State<InputScreen> {
               onChanged: (v) => loncat = double.tryParse(v) ?? 0,
             ),
             CustomInput(
-              label: "Lari Jarak Jauh (Detik)",
+              label: gender == 'Putra'
+                  ? "Lari Jarak Jauh 1200m (Detik)"
+                  : "Lari Jarak Jauh 1000m (Detik)",
               type: TextInputType.number,
               onChanged: (v) => lariJauh = double.tryParse(v) ?? 0,
             ),
@@ -74,7 +79,7 @@ class _InputScreenState extends State<InputScreen> {
               },
               child: Text(
                 "LIHAT HASIL KONVERSI",
-                style: TextStyle(color: Colors.white),
+                style: AppTextStyles.bodyText.copyWith(color: Colors.white),
               ),
             ),
           ],

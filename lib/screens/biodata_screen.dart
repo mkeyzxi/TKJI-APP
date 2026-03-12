@@ -89,8 +89,8 @@ class _BiodataScreenState extends State<BiodataScreen> {
                   int? age = int.tryParse(value ?? '');
                   if (age == null || age <= 0)
                     return 'Usia harus angka positif';
-                  if (age < 16 || age > 19)
-                    return 'Kategori usia TKJI: 16-19 tahun';
+                  if (age < 16 || age > 58)
+                    return 'Kategori usia TKJI: 16-58 tahun';
                   return null;
                 },
               ),
@@ -194,7 +194,7 @@ class _BiodataScreenState extends State<BiodataScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Semester', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('Semester', style: AppTextStyles.bodyText),
               SizedBox(height: 8),
               Container(
                 decoration: BoxDecoration(

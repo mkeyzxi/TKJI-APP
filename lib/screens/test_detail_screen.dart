@@ -123,11 +123,7 @@ class _TestDetailScreenState extends State<TestDetailScreen> {
                 onPressed: () => Navigator.pop(context),
                 child: Text(
                   'Kembali',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  style: AppTextStyles.heading2.copyWith(color: Colors.white),
                 ),
               ),
             ),
@@ -157,11 +153,9 @@ class _TestDetailScreenState extends State<TestDetailScreen> {
           SizedBox(height: 12),
           Text(
             '${widget.result.totalSkor} / 25',
-            style: TextStyle(
+            style: AppTextStyles.heading1.copyWith(
               fontSize: 48,
-              fontWeight: FontWeight.bold,
               color: categoryColor,
-              fontFamily: 'Poppins',
             ),
           ),
           SizedBox(height: 16),
@@ -185,20 +179,14 @@ class _TestDetailScreenState extends State<TestDetailScreen> {
               children: [
                 Text(
                   'Kategori',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: AppTextStyles.caption.copyWith(color: Colors.white),
                 ),
                 SizedBox(height: 4),
                 Text(
                   shortKategori,
-                  style: TextStyle(
+                  style: AppTextStyles.heading2.copyWith(
                     fontSize: 20,
-                    fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontFamily: 'Poppins',
                   ),
                 ),
                 SizedBox(height: 4),

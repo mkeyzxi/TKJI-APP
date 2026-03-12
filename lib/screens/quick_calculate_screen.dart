@@ -49,9 +49,8 @@ class _QuickCalculateScreenState extends State<QuickCalculateScreen> {
                     setState(() => jenisKelamin = val.toString()),
                 decoration: InputDecoration(
                   labelText: "Jenis Kelamin",
-                  labelStyle: TextStyle(
+                  labelStyle: AppTextStyles.bodyText.copyWith(
                     color: AppColors.primary,
-                    fontWeight: FontWeight.w500,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -75,8 +74,8 @@ class _QuickCalculateScreenState extends State<QuickCalculateScreen> {
                   int? age = int.tryParse(value ?? '');
                   if (age == null || age <= 0)
                     return 'Usia harus angka positif';
-                  if (age < 16 || age > 19)
-                    return 'Kategori usia TKJI: 16-19 tahun';
+                  if (age < 16 || age > 58)
+                    return 'Kategori usia TKJI: 16-58 tahun';
                   return null;
                 },
               ),
@@ -94,7 +93,9 @@ class _QuickCalculateScreenState extends State<QuickCalculateScreen> {
               ),
               SizedBox(height: 12),
               CustomInput(
-                label: "Gantung Angkat Tubuh (Kali)",
+                label: jenisKelamin == 'Putra'
+                    ? "Gantung Angkat Tubuh (Kali)"
+                    : "Menahan Tubuh (Detik)",
                 type: TextInputType.number,
                 onChanged: (v) => gantung = int.tryParse(v) ?? 0,
                 validator: (value) =>

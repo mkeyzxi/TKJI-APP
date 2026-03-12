@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen>
               SizedBox(height: 30),
               // Title
               Text(
-                'Kebugaran Jasmani',
+                'MAPP-FIT',
                 style: AppTextStyles.heading1.copyWith(
                   color: AppColors.textPrimary,
                 ),

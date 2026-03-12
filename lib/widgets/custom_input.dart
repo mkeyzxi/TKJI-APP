@@ -10,13 +10,15 @@ class CustomInput extends StatelessWidget {
   final int minLines;
 
   const CustomInput({
+    Key? key,
     required this.label,
+
     required this.onChanged,
     this.type = TextInputType.text,
     this.validator,
     this.maxLines = 1,
     this.minLines = 1,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
