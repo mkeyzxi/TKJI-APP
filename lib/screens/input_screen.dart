@@ -55,7 +55,9 @@ class _InputScreenState extends State<InputScreen> {
               onChanged: (v) => loncat = double.tryParse(v) ?? 0,
             ),
             CustomInput(
-              label: "Lari Jarak Jauh (Detik)",
+              label: gender == 'Putra'
+                  ? "Lari Jarak Jauh 1200m (Detik)"
+                  : "Lari Jarak Jauh 1000m (Detik)",
               type: TextInputType.number,
               onChanged: (v) => lariJauh = double.tryParse(v) ?? 0,
             ),

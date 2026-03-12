@@ -168,6 +168,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         SizedBox(height: 20),
         CustomInput(
           label: 'Waktu Lari 60m (detik)',
+          key: ValueKey('lari60'),
           type: TextInputType.numberWithOptions(decimal: true),
           onChanged: (value) => lari60 = double.tryParse(value) ?? 0,
           validator: (value) {
@@ -202,7 +203,9 @@ class _TestInputScreenState extends State<TestInputScreen> {
         ),
         SizedBox(height: 20),
         CustomInput(
-          // 4. Sesuaikan label input agar user tidak bingung (Kali vs Detik)
+          key: ValueKey(
+            'gantung',
+          ), // 4. Sesuaikan label input agar user tidak bingung (Kali vs Detik)
           label: isPutra ? 'Jumlah Gantung (kali)' : 'Durasi Menahan (detik)',
           type: TextInputType.number,
           onChanged: (value) => gantung = int.tryParse(value) ?? 0,
@@ -231,6 +234,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         ),
         SizedBox(height: 20),
         CustomInput(
+          key: ValueKey('situp'),
           label: 'Jumlah Sit-up (kali)',
           type: TextInputType.number,
           onChanged: (value) => situp = int.tryParse(value) ?? 0,
@@ -256,6 +260,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         ),
         SizedBox(height: 20),
         CustomInput(
+          key: ValueKey('loncat'),
           label: 'Hasil Loncat Tegak (cm)',
           type: TextInputType.number,
           onChanged: (value) => loncat = int.tryParse(value) ?? 0,
@@ -288,6 +293,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
           children: [
             Expanded(
               child: CustomInput(
+                key: ValueKey('lariJauhMenit'),
                 label: 'Menit',
                 type: TextInputType.number,
                 onChanged: (value) => setState(
@@ -302,6 +308,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
             SizedBox(width: 12),
             Expanded(
               child: CustomInput(
+                key: ValueKey('lariJauhDetik'),
                 label: 'Detik',
                 type: TextInputType.number,
                 onChanged: (value) => setState(

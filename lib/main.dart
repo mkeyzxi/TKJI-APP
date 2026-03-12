@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'screens/splash_screen.dart';
+// import 'screens/splash_screen.dart';
+import 'screens/home_screen.dart';
 import 'services/test_result_service.dart';
 import 'services/database_helper.dart';
 
@@ -36,7 +37,8 @@ class TKJIApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: SplashScreen(),
+      home: HomeScreen(),
+      // home: SplashScreen(),
     );
   }
 }
